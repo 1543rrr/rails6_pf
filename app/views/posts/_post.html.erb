@@ -1,0 +1,9 @@
+<div class="card">
+  <%= link_to image_tag(post.image), post_path(post.id), class: "card__image" %>
+  <div class="card__body">
+    <%= link_to "#{post.fes_name}", post_path(post.id), class: "card__fes_name" %>
+    <p class="card__summary">
+      <%= post.impressions %>
+    </p>
+  </div>
+</div>
