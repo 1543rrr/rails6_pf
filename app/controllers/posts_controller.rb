@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show] 
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :new, :create, :edit, :search, :update, :destroy]
   def index
     @posts = Post.all 
   end
@@ -37,7 +38,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])  
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)  
   end
   
   private
@@ -46,4 +49,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:fes_name, :impressions, :image).merge(user_id: current_user.id)
   end
 
+  def set_users
+    @users = Users.find(post_params)
+  end
 end

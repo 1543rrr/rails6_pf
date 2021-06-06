@@ -1,0 +1,37 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <p><%= @user.nickname %>さんのプロフィール</p>
+      </h2>
+      <table class="table">
+        <tbody>
+          <%# <×ゲストユーザー 以外のユーザーの時で、メールアドレスとパスワードが一致しているユーザーだったらプロフィール編集ページを表示できる> %>
+          <%# <◎ゲストユーザー 以外のユーザーかつログインしているユーザーと@userの情報が一致した時は表示する> %>
+          <% if current_user.email != "guest@example.com" && @user.id == current_user.id %>
+            <%= form_with model: @user, url: user_path(@user), local: true do |f|%>
+              <div class="field">
+                <%= f.label :nickname, "ニックネーム" %><br />
+                <%= f.text_field :nickname %>
+              </div>
+              <div class="field">
+                <%= f.label :email, "メールアドレス" %><br />
+                <%= f.text_field :email %>
+              </div>
+              <div class="actions">
+                <%= f.submit "更新する", class: :form__btn  %>
+              </div>
+            <% end %> 
+          <% end %>
+          <%# <tr> %>
+        </tbody>
+      </table>
+            <h2 class="page-heading">
+        <p><%= @user.nickname %>さんの投稿一覧</p>
+      </h2>
+      <div class="user__card">
+            <%= render partial: 'posts/post', collection: @posts %>
+      </div>
+    </div>
+  </div>
+</div>
