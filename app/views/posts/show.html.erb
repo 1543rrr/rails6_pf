@@ -4,7 +4,7 @@
       <p class="post__hedding">
         <%= @post.fes_name %>
       </p>
-      <%= link_to "by#{@post.user.nickname}", user_path(@post.user.id), class: :post__user %>       
+      <%= link_to "by#{@post.user.nickname}", user_path(@post.user.id), class: :post__user %>
         <% if user_signed_in? && @post.user.id == current_user.id %>
           <div class="post__manage">
             <%= link_to "編集する", edit_post_path(@post), class: :post__btn %>
@@ -27,12 +27,26 @@
         <div class="post__detail">
           <p class="detail__title">
           </p>
-      
+      <% if user_signed_in? && current_user.liked_by?(@post.id) %>
+       <td>
+        <%= link_to destroy_like_path(@post), method: :DELETE do %>
+          <i class="fa fa-heart unlike-btn"></i>
+        <% end %>
+        <%= @post.likes.count %>
+      </td>
+  <% else %>
+       <td>
+       <%= link_to create_like_path(@post), method: :POST do %>
+          <i class="fa fa-heart like-btn"></i>
+      <% end %>
+      <%= @post.likes.count %>
+    </td>
+  <% end %>
           <p class="detail__message">
           </p>
         </div>
       </div>
-<div class="post__comments">
+      <div class="post__comments">
           <%= form_with model: [@post, @comment], local: true do |f|%>
             <div class="field">
               <%= f.label :text, "コメント" %><br />
@@ -52,7 +66,7 @@
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         <% end %>
         </ul>
-      </div>    
+      </div>
     </div>
   </div>
 </main>

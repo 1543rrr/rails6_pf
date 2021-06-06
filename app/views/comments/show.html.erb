@@ -27,6 +27,21 @@
         <div class="post__detail">
           <p class="detail__title">
           </p> 
+      <% if user_signed_in? && current_user.liked_by?(@post.id) %>
+       <td>
+        <%= link_to destroy_like_path(@post), method: :DELETE do %>
+          <i class="fa fa-heart unlike-btn"></i>
+        <% end %>
+        <%= @post.likes.count %>
+      </td>
+  <% else %>
+       <td>
+       <%= link_to create_like_path(@post), method: :POST do %>
+          <i class="fa fa-heart like-btn"></i>
+      <% end %>
+      <%= @post.likes.count %>
+    </td>
+  <% end %>
           <p class="detail__message">
           </p>
         </div>
