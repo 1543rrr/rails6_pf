@@ -1,0 +1,57 @@
+<main class="main">
+  <div class="inner">
+    <div class="post__wrapper">
+      <p class="post__hedding">
+        <%= @post.fes_name %>
+      </p>
+      <%= link_to "by#{@post.user.nickname}", user_path(@post.user.id), class: :post__user %>
+        <% if user_signed_in? && @post.user.id == current_user.id %>
+          <div class="post__manage">
+            <%= link_to "編集する", edit_post_path(@post), class: :post__btn %>
+            <%= link_to "削除する", post_path(@post), method: :delete, class: :post__btn %>
+          </div>
+        <% end %>
+      <%# // 投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="post__image">
+        
+        <%= image_tag (@post.image) %>
+      </div>
+            <div class="post__body">
+        <div class="post__detail">
+          <p class="detail__title"> 
+          </p>
+          <p class="detail__message">
+            <%= @post.impressions %>
+          </p>
+        </div>
+        <div class="post__detail">
+          <p class="detail__title">
+          </p> 
+          <p class="detail__message">
+          </p>
+        </div>
+      </div>
+      <div class="post__comments">
+          <%= form_with model: [@post, @comment], local: true do |f|%>
+            <div class="field">
+              <%= f.label :text, "コメント" %><br />
+              <%= f.text_field :text %>
+            </div>
+            <div class="actions">
+              <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <% end %> 
+        <%# // ログインしているユーザーには上記を表示する %>
+        <ul class="comments_lists">
+          <% @comments.each do |comment| %>
+            <li class="comments_list">
+               <%= comment.text %>
+              <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
+            </li>
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

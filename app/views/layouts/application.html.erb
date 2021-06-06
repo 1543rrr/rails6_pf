@@ -18,6 +18,7 @@
             <div class="nav__right">
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__btn, method: :delete %>
               <%= link_to "新規投稿",  new_post_path, class: :nav__btn %>          
+              <%= link_to "マイページ", user_path(current_user), data: {"turbolinks" => false}, class: :nav__btn %>
           <% else %>            
               <%= link_to "ログイン",  new_user_session_path, class: :nav__btn %> 
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>            
