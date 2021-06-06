@@ -1,0 +1,24 @@
+<%= form_with(model:post, local: true) do |f| %>
+
+  <div class="field">
+    <%= f.label :fes_name, "フェスネーム" %><br />
+    <%= f.text_field :fes_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :impressions, "感想" %><br />
+    <%= f.text_area :impressions, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
+
+
+ 
