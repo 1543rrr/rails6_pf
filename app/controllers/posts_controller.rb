@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show] 
   def index
     @posts = Post.all 
   end
@@ -17,6 +18,7 @@ class PostsController < ApplicationController
   end  
 
   def show
+    @post = Post.find(params[:id])  
   end
   
   private
@@ -26,4 +28,3 @@ class PostsController < ApplicationController
   end
 
 end
-

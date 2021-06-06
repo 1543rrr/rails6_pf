@@ -1,0 +1,36 @@
+<main class="main">
+  <div class="inner">
+    <div class="post__wrapper">
+      <p class="post__hedding">
+        <%= @post.fes_name %>
+      </p>
+        <% if user_signed_in? && @post.user.id == current_user.id %>
+          <div class="post__manage">
+            <%= link_to "編集する", edit_post_path(@post), class: :post__btn %>
+            <%= link_to "削除する", post_path(@post), method: :delete, class: :post__btn %>
+          </div>
+        <% end %>
+      <%# // 投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="post__image">
+        
+        <%= image_tag (@post.image) %>
+      </div>
+            <div class="post__body">
+        <div class="post__detail">
+          <p class="detail__title"> 
+          </p>
+          <p class="detail__message">
+            <%= @post.impressions %>
+          </p>
+        </div>
+        <div class="post__detail">
+          <p class="detail__title">
+          </p>
+      
+          <p class="detail__message">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
