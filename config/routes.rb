@@ -12,4 +12,6 @@ resources :users, only: [:show, :update]
 devise_scope :user do
   post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
 end
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+  post 'like/:id' => 'likes#create', as: 'create_like'
 end
