@@ -4,6 +4,7 @@
       <p class="post__hedding">
         <%= @post.fes_name %>
       </p>
+      <%= link_to "by#{@post.user.nickname}", user_path(@post.user.id), class: :post__user %>       
         <% if user_signed_in? && @post.user.id == current_user.id %>
           <div class="post__manage">
             <%= link_to "編集する", edit_post_path(@post), class: :post__btn %>
