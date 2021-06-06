@@ -22,6 +22,7 @@
           <% else %>            
               <%= link_to "ログイン",  new_user_session_path, class: :nav__btn %> 
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>            
+              <%= link_to 'ゲストログイン（企業担当者様閲覧用ログイン）', users_guest_sign_in_path, method: :post, class: :nav__btn %>
           <% end %>            
         </div>
         </div>
