@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: "posts#index"
   resources :posts, except: [:index] do
   resources :posts
-  resources :comments, only: :create
+  resources :comments, only: [:create]
 end
 resources :users, only: [:show, :update]
 end
