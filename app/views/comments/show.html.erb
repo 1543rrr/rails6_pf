@@ -26,7 +26,7 @@
         </div>
         <div class="post__detail">
           <p class="detail__title">
-          </p>
+          </p> 
       <% if user_signed_in? && current_user.liked_by?(@post.id) %>
        <td>
         <%= link_to destroy_like_path(@post), method: :DELETE do %>

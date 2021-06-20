@@ -4,6 +4,24 @@
     <%= link_to "#{post.fes_name}", post_path(post.id), class: "card__fes_name" %>
     <p class="card__summary">
       <%= post.impressions %>
-    </p>
+    </p> 
+
+    <% if user_signed_in? %>
+      <% if current_user.liked_by?(post.id) %>
+        <td>
+          <%= link_to destroy_like_path(post), method: :DELETE do %>
+            <i class="fa fa-heart unlike-btn"></i>
+          <% end %>
+          <%= post.likes.count %>
+        </td>
+      <% else %>
+        <td>
+          <%= link_to create_like_path(post), method: :POST do %> 
+            <i class="fa fa-heart like-btn"></i>
+          <% end %>
+          <%= post.likes.count %>
+        </td>
+      <% end %>
+    <% end %>
   </div>
 </div>
