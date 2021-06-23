@@ -14,6 +14,9 @@
     <header class="header">
       <div class="inner">
         <div class="nav">
+        <%= flash[:notice] %>
+<%= flash[:success] %>
+<%= flash[:danger] %>
           <div class="nav__right" >
             <%= link_to "クラシック音楽祭", root_path, method: :get, class: :nav__btn  %>
             <% if user_signed_in? %>
@@ -23,7 +26,7 @@
             <% else %>
               <%= link_to "ログイン",  new_user_session_path, class: :nav__btn %> 
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
-              <%= link_to 'ゲストログイン（企業担当者様閲覧用ログイン）', users_guest_sign_in_path, method: :post, class: :nav__btn %>
+              <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: :nav__btn %>
             <% end %>
           </div>
           <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
