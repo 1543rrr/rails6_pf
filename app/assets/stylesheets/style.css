@@ -281,6 +281,17 @@ a {
   align-items: center;
 }
 
+.footer {
+  background-color: #f3ddf8;
+  padding: 10px 0;
+}
+.copyright {
+  text-align: center;
+  color: rgb(10, 10, 10);
+  font-size: 15px;
+}
+
+
 /* タブレット対応 */
 @media (max-width: 1024px) {
   .inner {
