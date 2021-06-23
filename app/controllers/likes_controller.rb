@@ -6,10 +6,10 @@ class LikesController < ApplicationController
       like = Like.new(user_id: current_user.id, post_id: params[:id])
 
       if like.save
-        flash[:success] = '投稿に「いいね！」しました。'
+        flash[:success] = '投稿に「いいね！」しました'
         redirect_back(fallback_location: root_path)
       else
-        flash[:alert] = 'すでに「いいね！」しています。'
+        flash[:alert] = 'すでに「いいね！」しています'
         redirect_back(fallback_location: root_path)
       end
     end
@@ -17,6 +17,7 @@ class LikesController < ApplicationController
 
   def destroy
     Like.find_by(user_id: current_user.id, post_id: params[:id]).destroy
+    flash[:success] = '「いいね！」を取り消しました'
     redirect_back(fallback_location: root_path)
   end
 
