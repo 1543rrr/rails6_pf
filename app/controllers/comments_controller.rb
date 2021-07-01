@@ -1,14 +1,17 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:create, :destroy]
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to post_path(@comment.post)
-    else
-      @post = @comment.post
-      @comments = @post.comments
-      render :show
+    if @comment.valid?
+      @comment.save
     end
+      redirect_to post_path(@comment.post)
+  end
+
+  def destroy
+    @comment = comment.find(params[:id])
+    @comment.destroy
+    redirect_to post_path(@comment.post)
   end
 
   private
