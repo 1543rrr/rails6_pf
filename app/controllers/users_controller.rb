@@ -12,15 +12,16 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to user_path(current_user)
-    else
-      redirect_to user_path(current_user)
+    #   redirect_to user_path(current_user)
+    # else
+    current_user.save
+    redirect_to root_path
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :nickname)
+    params.require(:user).permit(:email, :nickname, :password, :password_confirmation)
   end
 end

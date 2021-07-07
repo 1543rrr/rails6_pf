@@ -14,11 +14,11 @@
     <header class="header">
       <div class="inner">
         <div class="nav">
-        <%= flash[:notice] %>
-<%= flash[:success] %>
-<%= flash[:danger] %>
+          <div class="nav__left">
+            <%= link_to "トップ", root_path, class: :nav__btn %>
+          </div>
           <div class="nav__right" >
-            <%= link_to "クラシック音楽祭", root_path, method: :get, class: :nav__btn  %>
+            <%= link_to "口コミ一覧", posts_path, method: :get, class: :nav__btn  %>
             <% if user_signed_in? %>
               <%= link_to "ログアウト", destroy_user_session_path, class: :nav__btn, method: :delete %>
               <%= link_to "新規投稿",  new_post_path, class: :nav__btn %>
@@ -26,19 +26,21 @@
             <% else %>
               <%= link_to "ログイン",  new_user_session_path, class: :nav__btn %> 
               <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
-              <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: :nav__btn %>
+              <%= link_to 'ゲストログイン（企業担当者様閲覧用ログイン）', users_guest_sign_in_path, method: :post, class: :nav__btn %>
             <% end %>
           </div>
           <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
             <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
             <%= form.submit "検索", class: "search-btn" %>
           <% end %>
+          </div>
       </div>
       </div>
     </header>
-   <%= yield %>
+    <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © MUSIC FESTIVEL All rights reserved.</p>
+      <p class="copyright">Copyright © 花形 祥絵 All rights reserved.</p>
     </footer>
   </body>
 </html>
+
