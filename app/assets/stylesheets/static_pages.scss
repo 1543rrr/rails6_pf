@@ -1,0 +1,189 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.topimage{
+  width: 100%;
+  height: 1000px;
+  background: url("fes.png");
+  background-size: cover;
+  background-position: 50% 50%;
+  top: 0px;
+}
+
+.content{
+  height: 1000px;
+  display: flex;
+  overflow: scroll;
+  justify-content: center;
+}
+
+// .card{
+//   width: 30px;
+//   height: 30px;
+// }
+
+.card__body{
+  // display: flex;
+  width: 250px;
+  height: 300px;
+  border-radius: 8px;
+  // overflow: hidden;
+  width: calc(100%/4);
+}
+
+.card__imgframe1{
+
+  background: url(gazou1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+  /* padding-top: 56.25%; */
+  box-sizing: border-box;
+}
+
+.card__textbox{
+  // width: 400%;
+  // height: 400%;
+  padding: 0px 0px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.card__textbox > * + *{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.card__titletext{
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 125%;
+}
+
+.card__overviewtext{
+  font-size: 20px;
+  line-height: 150%;
+}
+  
+
+
+// .card__imgframe-center{
+//   background: url(gazou1.png);
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   width: 50%;
+//   height: 300px;
+//   /* padding-top: 56.25%; */
+//   box-sizing: border-box;
+// }
+
+// .card__textbox-center{
+//   width: 50%;
+//   height: 45%;
+//   padding: 20px 18px;
+//   background: #fff;
+//   box-sizing: border-box;
+// }
+
+// .card__textbox-center > * + *{
+//   margin-top: 10px;
+// }
+
+// .card__titletext-center{
+//   font-size: 20px;
+//   font-weight: bold;
+//   line-height: 125%;
+// }
+
+// .card__overviewtext-center{
+//   font-size: 12px;
+//   line-height: 150%;
+// }
+  
+// .card-right{
+//   // display: flex;
+//   width: 350px;
+//   height: 300px;
+//   border-radius: 8px;
+//   overflow: hidden;
+// }
+
+// .card__imgframe-right{
+//   background: url(gazou1.png);
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   width: 50%;
+//   height: 300px;
+//   /* padding-top: 56.25%; */
+//   box-sizing: border-box;
+// }
+
+// .card__textbox-right{
+//   width: 50%;
+//   height: 45%;
+//   padding: 20px 18px;
+//   background: #fff;
+//   box-sizing: border-box;
+// }
+
+// .card__textbox-right > * + *{
+//   margin-top: 10px;
+// }
+
+// .card__titletext-right{
+//   font-size: 20px;
+//   font-weight: bold;
+//   line-height: 125%;
+// }
+
+// .card__overviewtext-right{
+//   font-size: 12px;
+//   line-height: 150%;
+// }
+
+@media screen and (max-width: 600px){
+  .main, .left-content,.main-contents, .right-content{
+  width: 100%;
+  }
+}
+
+
+
+.card__imgframe2{
+
+  background: url(gazou2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+  /* padding-top: 56.25%; */
+  box-sizing: border-box;
+}
+
+.card__imgframe3{
+
+  background: url(gazou1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+  /* padding-top: 56.25%; */
+  box-sizing: border-box;
+}
+
+.card__imgframe4{
+
+  background: url(gazou1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+  /* padding-top: 56.25%; */
+  box-sizing: border-box;
+}

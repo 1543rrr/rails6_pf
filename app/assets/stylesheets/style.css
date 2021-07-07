@@ -16,8 +16,9 @@ div {
 }
 
 body {
-  background-image:url("haikei.jpg");
+  background-image:image-url("haikei.jpg");
 }
+
 
 li {
   list-style: none;
@@ -37,7 +38,7 @@ a {
 
 .header {
   background-color: #f3ddf8;
-  margin-bottom: 48px;
+  // margin-bottom: 48px;
   padding: 20px 0;
 
 }
@@ -60,7 +61,7 @@ a {
   color: #660f62;
   text-decoration: none;
   user-select: none;
-  border: 1px #660f62; solid;
+  border: 1px #660f62 solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
@@ -281,16 +282,24 @@ a {
   align-items: center;
 }
 
+/* フッター */
+
 .footer {
-  background-color: #f3ddf8;
-  padding: 10px 0;
-}
-.copyright {
-  text-align: center;
-  color: rgb(10, 10, 10);
-  font-size: 15px;
+  position: fixed; /* フッターを固定する */
+  bottom: 0; /* 上部から配置の基準位置を決める */
+  left: 0; /* 左から配置の基準位置を決める */
+  width: 100%; /* フッターの横幅を指定する */
+  height: 35px; /* フッターの高さを指定する */
+  padding:10px; /* フッター内側の余白を指定する(上下左右) */
+  background-color: #f3ddf8; /* フッターの背景色を指定する */
+  // color: #660f62; /* フッターのフォントの色を指定する */
 }
 
+.copyright {
+    text-align: center;
+    color: #660f62;
+    font-size: 15px;
+}
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
