@@ -1,5 +1,9 @@
 <main class="main">
   <div class="inner">
+  <div class='flash-message'>
+  <%= flash[:notice] %>
+  <%= flash[:success] %>
+  </div>
     <% if user_signed_in? %>
       <div class="greeting">
         <span>こんにちは、</span>

@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.valid?
       @comment.save
+      flash[:notice] = 'コメント投稿が完了しました'
     end
       redirect_to post_path(@comment.post)
   end
@@ -20,3 +21,13 @@ class CommentsController < ApplicationController
   end
 
 end
+def create
+  @post = Post.new(post_params)
+  if @post.save
+    flash[:notice] = '投稿が完了しました'
+    redirect_to posts_path
+  else
+    flash.now[:alert] = "投稿に失敗しました"
+  render :new
+  end    
+end  

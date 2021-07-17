@@ -12,8 +12,8 @@ class Post < ApplicationRecord
     end
   end
 
-  validates :fes_name,presence: true
-  validates :impressions,  presence: true
+  validates :fes_name,presence: true, length: { maximum: 10 }
+  validates :impressions,  presence: true, length: { maximum: 45 }
   validates :image, presence: true
 
 end
