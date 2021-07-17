@@ -2,7 +2,9 @@ ja:
   activerecord:
     attributes:
       user:
-        nickname: ニックネーム
+        nickname: ニックネームが入力されていません
       post:
         impressions: 感想
         image: 画像
+
+

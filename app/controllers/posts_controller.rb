@@ -12,10 +12,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:success] = '投稿が完了しました'
-      redirect_to root_path
+      flash[:notice] = '投稿が完了しました'
+      redirect_to posts_path
     else
-      flash.now[:danger] = "投稿に失敗しました"
+      flash.now[:alert] = "投稿に失敗しました"
     render :new
     end    
   end  
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:success] = '投稿を削除しました'
-    redirect_to root_path
+    redirect_to posts_path
   end
 
   def edit
@@ -34,8 +34,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path(@post)
-      flash[:success] = '投稿を編集しました'
+      redirect_to post_path, success = '投稿を編集しました'
+      # flash[:success] = '投稿を編集しました'
       else
     render :edit
     end

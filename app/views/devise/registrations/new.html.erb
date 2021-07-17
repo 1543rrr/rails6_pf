@@ -1,6 +1,10 @@
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
+        <div class='flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
       <h2 class="page-heading">ユーザー新規登録</h2>
 
         <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user',local: true do |f| %>

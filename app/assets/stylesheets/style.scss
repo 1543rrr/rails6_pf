@@ -301,6 +301,14 @@ a {
     font-size: 15px;
 }
 
+.flash-message {
+  color: #eb0d0d;
+}
+
+.login-flash-message{
+  color: #eb0d0d;
+}
+
 /* タブレット対応 */
 @media (max-width: 1024px) {
   .inner {
